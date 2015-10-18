@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Segitiga</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .top-buffer {margin-top: 20px}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-2">
+                <h2>Segitiga Generator</h2>
+
+                <hr>
+
+                <form>
+                    <div class="form-group">
+                        <label for="type">Jenis Segitiga</label>
+                        <select name="type" id="type" class="form-control">
+                            <option value="">Pilih jenis segitiga</option>
+                            <option value="a">A</option>
+                            <option value="b">B</option>
+                            <option value="c">C</option>
+                            <option value="d">D</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="character">Karakter Segitiga</label>
+                        <input type="text" name="character" id="character" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="length">Panjang Sisi</label>
+                        <input type="text" name="length" id="length" class="form-control">
+                    </div>
+                    <button class="btn btn-default" id="generate">Generate!</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row top-buffer">
+            <div class="col-md-4 col-md-offset-2">
+                <pre id="result">
+
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#generate').click(function() {
+                var type = $('#type').val();
+                var character = $('#character').val();
+                var length = $('#length').val();
+
+                if (type == '' || character == '' || length == '') {
+                    alert('Semua field harus di isi');
+                    return false;
+                }
+
+                if (!$.isNumeric(length)) {
+                    alert('Field panjang sisi harus berupa angka');
+                    return false;
+                }
+
+                $.post( 'segitiga-proses.php', { type: type, character: character, length: length })
+                    .done(function( data ) {
+                        $('#result').html(data);
+                    }
+                );
+
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>

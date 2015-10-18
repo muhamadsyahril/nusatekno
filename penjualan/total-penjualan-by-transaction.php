@@ -40,6 +40,17 @@
             </tbody>
         </table>
         </div>
+
+        <div class="row top-buffer">
+            <h3>ID Transaksi Tersedia:</h3>
+            <ul>
+                <li>TRX/2015/0001</li>
+                <li>TRX/2015/0002</li>
+                <li>TRX/2015/0003</li>
+                <li>TRX/2015/0004</li>
+                <li>TRX/2015/0005</li>
+            </ul>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
