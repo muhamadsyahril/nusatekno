@@ -1,6 +1,8 @@
 <?php
-class Segitiga {
-    function generate_a($character, $length) {
+class Segitiga
+{
+    function generate_a($character, $length)
+    {
         $result = '';
         for ($i = 1; $i <= $length; $i++) {
             for ($x = 1; $x <= $i; $x++) {
@@ -11,7 +13,8 @@ class Segitiga {
         return $result;
     }
 
-    function generate_b($character, $length) {
+    function generate_b($character, $length)
+    {
         $result = '';
         for ($i = $length; $i >= 1 ; $i--) {
             for ($x = 1; $x <= $i; $x++) {
@@ -22,7 +25,8 @@ class Segitiga {
         return $result;
     }
 
-    function generate_c($character, $length) {
+    function generate_c($character, $length)
+    {
         $result = '';
         for ($i = 1; $i <= $length; $i++) {
             for ($x = 1; $x <= $length - $i; $x++) {
@@ -36,7 +40,8 @@ class Segitiga {
         return $result;
     }
 
-    function generate_d($character, $length) {
+    function generate_d($character, $length)
+    {
         $result = '';
         for ($i = $length; $i >= 1; $i--) {
             for ($x = 1; $x <= $length - $i; $x++) {
